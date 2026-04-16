@@ -2,7 +2,25 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SmartStudyAssistant" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="colorPrimaryContainer">@color/accent_primary_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/accent_success</item>
+        <item name="colorSecondaryContainer">@color/accent_success_bg</item>
+        
+        <item name="colorError">@color/accent_urgent</item>
+
+        <item name="android:colorBackground">@color/bg_light</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorSurfaceVariant">@color/surface_elevated_light</item>
+        <item name="colorOnBackground">@color/text_primary_light</item>
+        <item name="colorOnSurface">@color/text_primary_light</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_light</item>
+        <item name="colorOutline">@color/border_light</item>
+        
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="Theme.SmartStudyAssistant" parent="Base.Theme.SmartStudyAssistant" />

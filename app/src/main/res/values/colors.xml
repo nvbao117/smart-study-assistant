@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Semantic Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Tech-Zen Theme Colors -->
+    <color name="bg_dark">#0D0F14</color>
+    <color name="surface_dark">#161A22</color>
+    <color name="surface_elevated_dark">#212631</color>
+    <color name="border_dark">#2B313F</color>
+
+    <color name="text_primary_dark">#F0F3F9</color>
+    <color name="text_secondary_dark">#8B95A5</color>
+    
+    <color name="bg_light">#F8FAFC</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="surface_elevated_light">#F1F5F9</color>
+    <color name="border_light">#E2E8F0</color>
+    
+    <color name="text_primary_light">#0F172A</color>
+    <color name="text_secondary_light">#64748B</color>
+
+    <!-- Gamified Accents -->
+    <color name="accent_primary">#6D28D9</color> <!-- Deep Violet, Tech AI -->
+    <color name="accent_primary_light">#8B5CF6</color> 
+    
+    <color name="accent_success">#10B981</color> <!-- Neon Green, XP / Done -->
+    <color name="accent_success_bg">#064E3B</color> 
+
+    <color name="accent_warning">#F59E0B</color> <!-- Amber, Pomodoro / Pending -->
+    
+    <color name="accent_urgent">#EF4444</color> <!-- Coral Red, Urgent Tasks -->
+    
+    <color name="transparent">#00000000</color>
 </resources>

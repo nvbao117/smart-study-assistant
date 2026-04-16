@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <!-- Screen placeholders to be implemented -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_dashboard"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.auth.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.task.TaskListFragment"
+        android:label="Tasks">
+        <action
+            android:id="@+id/action_taskList_to_taskDetail"
+            app:destination="@id/taskDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.task.TaskDetailFragment"
+        android:label="Task Detail"
+        tools:layout="@layout/fragment_task_detail" />
+
+    <fragment
+        android:id="@+id/pomodoroFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.pomodoro.PomodoroFragment"
+        android:label="Focus"
+        tools:layout="@layout/fragment_pomodoro">
+        <action
+            android:id="@+id/action_pomodoro_to_history"
+            app:destination="@id/pomodoroHistoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pomodoroHistoryFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.pomodoro.PomodoroHistoryFragment"
+        android:label="Focus History"
+        tools:layout="@layout/fragment_pomodoro_history" />
+
+    <fragment
+        android:id="@+id/deckListFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.flashcard.DeckListFragment"
+        android:label="Cards"
+        tools:layout="@layout/fragment_deck_list">
+        <action
+            android:id="@+id/action_deckList_to_deckDetail"
+            app:destination="@id/deckDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/deckDetailFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.flashcard.DeckDetailFragment"
+        android:label="Deck"
+        tools:layout="@layout/fragment_deck_detail">
+        <argument
+            android:name="deckId"
+            app:argType="long" />
+        <argument
+            android:name="deckName"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_deckDetail_to_review"
+            app:destination="@id/flashcardReviewFragment" />
+        <action
+            android:id="@+id/action_deckDetail_to_createCard"
+            app:destination="@id/createCardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/flashcardReviewFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.flashcard.FlashcardReviewFragment"
+        android:label="Review"
+        tools:layout="@layout/fragment_flashcard_review">
+        <argument
+            android:name="deckId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createCardFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.flashcard.CreateCardFragment"
+        android:label="New Card"
+        tools:layout="@layout/fragment_create_card">
+        <argument
+            android:name="deckId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.gamification.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_achievements"
+            app:destination="@id/achievementListFragment" />
+        <action
+            android:id="@+id/action_profile_to_analytics"
+            app:destination="@id/analyticsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/achievementListFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.gamification.AchievementListFragment"
+        android:label="Achievements"
+        tools:layout="@layout/fragment_achievements" />
+
+    <fragment
+        android:id="@+id/analyticsFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.gamification.AnalyticsFragment"
+        android:label="Analytics"
+        tools:layout="@layout/fragment_analytics" />
+
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.chatbot.ChatListFragment"
+        android:label="AI Chat"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/action_chatList_to_chat"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_chatList_to_aiSettings"
+            app:destination="@id/aiSettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.chatbot.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="sessionId"
+            app:argType="long" />
+        <argument
+            android:name="sessionTitle"
+            app:argType="string"
+            android:defaultValue="Chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aiSettingsFragment"
+        android:name="hcmute.edu.vn.smartstudyassistant.presentation.chatbot.AiSettingsFragment"
+        android:label="AI Settings"
+        tools:layout="@layout/fragment_ai_settings" />
+
+</navigation>
