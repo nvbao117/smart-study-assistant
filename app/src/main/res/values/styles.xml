@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text Appearances -->
+    <style name="TextAppearance.SmartStudy.Heading1" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">sans-serif-black</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    
+    <style name="TextAppearance.SmartStudy.Heading2" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextAppearance.SmartStudy.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="TextAppearance.SmartStudy.BodyBold" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.SmartStudy.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <!-- Base Components -->
+    <style name="Widget.SmartStudy.Button.Primary" parent="Widget.Material3.Button">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+    <style name="Widget.SmartStudy.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">?attr/colorOutline</item>
+    </style>
+</resources>

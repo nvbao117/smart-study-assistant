@@ -2,6 +2,24 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SmartStudyAssistant" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/accent_primary</item>
+        <item name="colorPrimaryContainer">@color/accent_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/accent_success</item>
+        <item name="colorSecondaryContainer">@color/accent_success_bg</item>
+        
+        <item name="colorError">@color/accent_urgent</item>
+
+        <item name="android:colorBackground">@color/bg_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorSurfaceVariant">@color/surface_elevated_dark</item>
+        <item name="colorOnBackground">@color/text_primary_dark</item>
+        <item name="colorOnSurface">@color/text_primary_dark</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary_dark</item>
+        <item name="colorOutline">@color/border_dark</item>
+        
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

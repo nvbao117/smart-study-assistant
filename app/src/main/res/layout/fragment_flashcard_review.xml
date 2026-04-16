@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@android:drawable/ic_menu_revert"
+        app:navigationIconTint="?attr/colorOnBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Progress indicator -->
+    <LinearLayout
+        android:id="@+id/layoutProgress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:trackCornerRadius="4dp"
+            app:indicatorColor="?attr/colorPrimary"
+            app:trackColor="?attr/colorOutline" />
+
+        <TextView
+            android:id="@+id/tvProgressCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textAppearance="@style/TextAppearance.SmartStudy.Caption"
+            tools:text="3 / 12" />
+    </LinearLayout>
+
+    <!-- Flashcard (flip container) -->
+    <FrameLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/layoutProgress"
+        app:layout_constraintBottom_toTopOf="@id/tvTapHint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Front side -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFront"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:strokeWidth="1dp"
+            app:strokeColor="?attr/colorOutline">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:padding="20dp"
+                    android:text="FRONT"
+                    android:textAppearance="@style/TextAppearance.SmartStudy.Caption"
+                    android:textColor="?attr/colorPrimary"
+                    android:letterSpacing="0.1" />
+                <TextView
+                    android:id="@+id/tvFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="32dp"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.SmartStudy.Heading2"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="What is Newton's Second Law?" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Back side -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="?attr/colorPrimaryContainer"
+            app:strokeWidth="0dp">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:padding="20dp"
+                    android:text="BACK"
+                    android:textAppearance="@style/TextAppearance.SmartStudy.Caption"
+                    android:textColor="?attr/colorPrimary"
+                    android:letterSpacing="0.1" />
+                <TextView
+                    android:id="@+id/tvBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="32dp"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearance.SmartStudy.Heading2"
+                    android:textColor="?attr/colorOnSurface"
+                    tools:text="F = ma" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+
+    <!-- Tap hint -->
+    <TextView
+        android:id="@+id/tvTapHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap card to reveal"
+        android:textAppearance="@style/TextAppearance.SmartStudy.Caption"
+        app:layout_constraintBottom_toTopOf="@id/layoutDifficultyButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Difficulty Buttons (shown after flip) -->
+    <LinearLayout
+        android:id="@+id/layoutDifficultyButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="32dp"
+        android:visibility="gone"
+        android:baselineAligned="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAgain"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="Again"
+            android:textSize="13sp"
+            app:backgroundTint="@color/accent_urgent"
+            app:cornerRadius="14dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnHard"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="Hard"
+            android:textSize="13sp"
+            app:backgroundTint="@color/accent_warning"
+            app:cornerRadius="14dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGood"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="Good"
+            android:textSize="13sp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:cornerRadius="14dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEasy"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="4dp"
+            android:text="Easy"
+            android:textSize="13sp"
+            app:backgroundTint="@color/accent_success"
+            app:cornerRadius="14dp" />
+    </LinearLayout>
+
+    <!-- Done state -->
+    <LinearLayout
+        android:id="@+id/layoutDone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎉"
+            android:textSize="64sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Session Complete!"
+            android:textAppearance="@style/TextAppearance.SmartStudy.Heading2"
+            android:textColor="?attr/colorOnBackground" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinish"
+            style="@style/Widget.SmartStudy.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="Back to Deck" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
